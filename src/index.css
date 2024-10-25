@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Happy Birthday";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Happy Birthday"),
+    url("/src/assets/fonts/Montserrat/Happy-Birthday.ttf") format("truetype");
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.flame {
+  position: absolute;
+  width: 15px;
+  height: 35px;
+  background-color: orange;
+  border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
+  top: -34px;
+  left: 1px;
+  transform-origin: 50% 90%;
+  animation: flicker 1.5s ease-in-out alternate infinite;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.7), 0 0 20px rgba(255, 140, 0, 0.5),
+    0 0 30px rgba(255, 69, 0, 0.3);
+}
+
+.flame::before,
+.flame::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 30px;
+  background-color: rgba(255, 69, 0, 0.8);
+  border-radius: 10px 10px 10px 10px / 20px 20px 10px 10px;
+  top: 0;
+  left: 50%;
+  transform-origin: 50% 90%;
+  z-index: -1;
+}
+
+.flame::before {
+  width: 10px;
+  height: 25px;
+  background-color: rgba(255, 215, 0, 0.6);
+  top: -5px;
+  margin-left: -5px;
+  animation: flicker 0.7s ease-in-out alternate infinite;
+}
+
+.flame::after {
+  width: 8px;
+  height: 20px;
+  background-color: rgba(255, 69, 0, 0.6);
+  top: -10px;
+  margin-left: -4px;
+  animation: flicker 1.2s ease-in-out alternate infinite;
+}
+
+@keyframes flicker {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 10px rgba(orange, 0.2), 0 0 20px rgba(orange, 0.2),
+      0 0 60px rgba(orange, 0.2), 0 0 80px rgba(orange, 0.2);
+  }
+
+  25% {
+    transform: skewX(-5deg);
+    box-shadow: 0 0 10px rgba(orange, 0.5), 0 0 20px rgba(orange, 0.5),
+      0 0 60px rgba(orange, 0.5), 0 0 80px rgba(orange, 0.5);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(2deg);
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(orange, 0.3), 0 0 20px rgba(orange, 0.3),
+      0 0 60px rgba(orange, 0.3), 0 0 80px rgba(orange, 0.3);
+  }
+  100% {
+    transform: scale(0.9) rotate(-2deg);
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(orange, 0.5), 0 0 20px rgba(orange, 0.5),
+      0 0 60px rgba(orange, 0.5), 0 0 80px rgba(orange, 0.5);
+  }
+}
